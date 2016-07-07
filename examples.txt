@@ -12,3 +12,14 @@
     "start": "https://en.wikipedia.org/wiki/Seattle",
     "end": "https://en.wikipedia.org/wiki/Barcelona"
 }'
+
+'{
+    "start": "https://en.wikipedia.org/wiki/David_Hasselhoff",
+    "end": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+}'
+
+'{
+    "start": "https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)",
+    "end": "https://en.wikipedia.org/wiki/Daft_Punk"
+}'
+
