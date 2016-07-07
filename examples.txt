@@ -4,6 +4,11 @@
 }'
 
 '{
+    "start": "https://en.wikipedia.org/wiki/Binomial_distribution",
+    "end": "https://en.wikipedia.org/wiki/Continuous_probability_distribution"
+}'
+
+'{
     "start": "https://en.wikipedia.org/wiki/French_fries",
     "end": "https://en.wikipedia.org/wiki/Beer"
 }'
@@ -13,13 +18,11 @@
     "end": "https://en.wikipedia.org/wiki/Barcelona"
 }'
 
+python wiki_racer_multi.py \
+--raw \
 '{
-    "start": "https://en.wikipedia.org/wiki/David_Hasselhoff",
-    "end": "https://en.wikipedia.org/wiki/Eiffel_Tower"
-}'
-
-'{
-    "start": "https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)",
+    "start": "https://en.wikipedia.org/wiki/2007",
     "end": "https://en.wikipedia.org/wiki/Daft_Punk"
 }'
+
 

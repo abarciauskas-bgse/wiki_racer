@@ -22,19 +22,6 @@ class TestWikiRacerMethods(unittest.TestCase):
         racer.child_parent_urls = {'url2': 'url1', 'url3': 'url1', 'url4': 'url2', 'url5': 'url2', 'url6': 'url3', 'url1': 'test_start_url', 'test_end_url': 'url6'}
         self.assertEqual(racer.path('test_end_url'), ['test_start_url', 'url1', 'url3', 'url6', 'test_end_url'])
 
-    def test_visit(self):
-        racer = WikiRacer("test_start_url", "test_end_url")
-        url = "https://en.wikipedia.org/wiki/Edge_contraction"
-        child_url1 = 'https://en.wikipedia.org/wiki/Chromatic_polynomial'
-        child_url2 = 'https://en.wikipedia.org/wiki/Category:Graph_operations'
-        result = racer.visit(url)
-        self.assertEqual(racer.visited, {url})
-        self.assertEqual(racer.child_parent_urls[child_url1], url)
-        self.assertEqual(racer.child_parent_urls[child_url2], url)
-        self.assertEqual(result[0], url)
-        self.assertEqual(result[1], False)
-        self.assertEqual(list(result[2])[0:2], [child_url1, child_url2])
-
 
 if __name__ == '__main__':
     unittest.main()    

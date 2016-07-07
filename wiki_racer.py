@@ -6,6 +6,7 @@ import time, random
 import os
 import json
 import sys
+import urllib2
 
 class WikiRacer(object):
     """docstring for WikiRacer"""
@@ -50,24 +51,13 @@ class WikiRacer(object):
     def add_parent_child(self, parent, child):
         self.child_parent_urls[child] = parent
 
-    def visit(self, url):
-        self.visited.add(url)
-        child_urls = self.get_urls(url)
-        if self.end_url in child_urls:
-            self.child_parent_urls[self.end_url] = url
-            return [url, True, set()]
-        else:
-            # REVIEW: Should there be concern about overriding existing path here?
-            [self.add_parent_child(url, p) for p in child_urls]
-            return [url, False, child_urls.difference(self.visited)]
-
     def run_race(self):
         # going to store url relationships like url: parent_url
         url_queue = [self.start_url]
         while True:
             current_url = url_queue.pop(0)
             current_child_urls = self.get_urls(current_url)
-            self.visited.append(current_url)
+            self.visited.add(current_url)
             for url in current_child_urls:
                 if url == end_url:
                     self.child_parent_urls[url] = current_url
