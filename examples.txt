@@ -1,0 +1,14 @@
+'{
+    "start": "https://en.wikipedia.org/wiki/Binomial_distribution",
+    "end": "https://en.wikipedia.org/wiki/Machine_learning"
+}'
+
+'{
+    "start": "https://en.wikipedia.org/wiki/French_fries",
+    "end": "https://en.wikipedia.org/wiki/Beer"
+}'
+
+'{
+    "start": "https://en.wikipedia.org/wiki/Seattle",
+    "end": "https://en.wikipedia.org/wiki/Barcelona"
+}'
