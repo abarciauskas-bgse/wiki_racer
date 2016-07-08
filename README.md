@@ -44,4 +44,4 @@ py.test test_wiki_racer.py
 
 # Design
 
-For details on the approaches
+For details on the approaches and suggestions for future improvements see [`DESIGN.md`](./DESIGN.md)
