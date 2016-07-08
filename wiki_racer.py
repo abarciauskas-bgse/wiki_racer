@@ -20,7 +20,6 @@ class WikiRacer(object):
             utils.visit(self, current_url, chunk)
 
 if __name__ == '__main__':
-    # FIXME: Throw an informative error if cannot parse json start and end url
     try:
         urls = utils.get_url_args()
         start_url = urls['start']
