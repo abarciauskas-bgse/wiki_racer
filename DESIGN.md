@@ -1,13 +1,13 @@
 # WikiRacer Design
 
-`wiki_racer.py` contains a brute force approach. The brute force approach is to use a queue of urls to visit, keep track of pages visited so far, and keep track of the path using a dictionary, `child_parent_urls`. Keys in `child_parent_urls` are urls and values are urls of the page where the respective url key was found. This facilitates reconstruction of the path used to find the endpoint without requiring maintenance of each unique path, which would be explosive.
+`wiki_racer.py` contains the single-threaded approach. The single-threaded approach keeps track of: a queue of urls to visit, a set of pages visited so far, and a dictionary of child-parent url relations, `child_parent_urls`. The latter facilitates reconstruction of the path used to find the endpoint without requiring maintenance of each unique path.
 
 For each url on the queue, the process is as follows:
 
 1. Dequeue a url from the url queue (`current_url`). Fetch the wiki page located at `current_url`.
 2. Iterate through wikipedia urls on the retrieved wiki page: Add or update `child_parent_urls[url] = current_url`. If the url is equal to the endpoint, return the path used to reach the endpoint. If the url is not equal to the endpoint and has not already been visited, append the url to the queue.
 
-`wiki_racer_multi.py` contains a multi-threaded approach. The logic is shared, but with important modifications:
+`wiki_racer_multi.py` contains a multi-threaded approach. The logic and book-keeping is the same as for the single-threaded version, but with important modifications:
 
 * A pool of threads is used to do step 1, each dumping the url plus its html contents on a queue for processing. This parallelizes the network calls.
 * A pool of threads parses each page and does the work in step 2. This parallelizes the work of parsing urls from html and checking for the endpoint.
@@ -36,8 +36,9 @@ It is clear that a multi-threaded approach outperforms the single-threaded appro
 
 ## Technical Improvements
 
-* Add missing tests for functions in utils.py
-* Add automated integration test for `wiki_racer` and `wiki_racer_multi`
-* Add arg for input / output as json file
+* Refactor code such that the command to execute wiki_racer is always the same with the option for multiple threads as an argument.
+* Write automated integration tests for `wiki_racer` and `wiki_racer_multi`.
+* Write unit tests for any functionality in `utils.py` which is missing from existing unit tests.
+* Add arg for input / output as json file.
 * Fix `os._exit(1)` in `utils.py`. Need to exit from all threads when one finds the end_url. See [possible solution](http://stackoverflow.com/questions/323972/is-there-any-way-to-kill-a-thread-in-python). Note, however this would only stop the thread finding the path, so would need to store a globalvar of a stopping boolean and have all threads check it. This will delay termination of the program, but the impact should be small.
 
