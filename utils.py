@@ -40,12 +40,13 @@ def visit(object, url, chunk):
             href = link['href']
             if not href[0] == '#' and not is_absolute(href):
                 new_url = "".join([object.domain, href])
-                object.child_parent_urls[new_url] = url
                 if new_url == object.end_url:
+                    object.child_parent_urls[new_url] = url
                     print json.dumps({
                         'start': object.start_url,
                         'end': object.end_url,
                         'path': path(object, object.end_url)}, indent=4)
                     os._exit(1)
                 if new_url not in object.visited:
+                    object.child_parent_urls[new_url] = url
                     object.urls_to_crawl_queue.put(new_url)

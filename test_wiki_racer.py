@@ -14,6 +14,7 @@ class TestWikiRacerMethods(unittest.TestCase):
         new_url = "https://en.wikipedia.org/wiki/Mathematics"
         chunk = urllib.urlopen(simp_url)
         utils.visit(racer, simp_url, chunk)
+        self.assertEqual(racer.start_url, racer.urls_to_crawl_queue.get())
         self.assertEqual(new_url, racer.urls_to_crawl_queue.get())
         self.assertTrue(simp_url in racer.visited)
 

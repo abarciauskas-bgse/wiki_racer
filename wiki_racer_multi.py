@@ -42,12 +42,12 @@ def main():
     #spawn a pool of threads, and pass them urls_to_crawl_queue instance
     for i in range(5):
         t = CrawlThread()
-        t.setDaemon(True)
+        t.daemon = True
         t.start()
 
     for i in range(5):
         dt = ParsePagesThread()
-        dt.setDaemon(True)
+        dt.daemon = True
         dt.start()
 
     #wait on the urls_to_crawl_queue until everything has been processed

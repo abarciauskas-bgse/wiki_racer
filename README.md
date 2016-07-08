@@ -1,8 +1,8 @@
-# Instructions
+# Use
 
-Install any missing libraries listed in `imports.py` or `utils.py`
+Install any missing libraries listed in `imports.py` and `utils.py`
 
-WikiRacer takes a starting and ending article in the form of a json string or file and returns a json string which includes a list of links visited.
+WikiRacer takes a starting and ending article in the form of a json string and returns a json string which includes a list of links visited.
 
 ```bash
 python wiki_racer_multi.py --raw \
@@ -12,16 +12,11 @@ python wiki_racer_multi.py --raw \
 }'
 ```
 
-# Run unit tests
+# Unit tests
 
 ```bash
 py.test test_wiki_racer.py
 ```
 
 
-# Todo
 
-* Add missing tests for functions in utils.py
-* Add automated integration test for `wiki_racer` and `wiki_racer_multi`
-* Add arg for input / output as json file
-* add arg option for 

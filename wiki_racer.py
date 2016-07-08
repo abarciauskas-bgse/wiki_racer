@@ -10,11 +10,12 @@ class WikiRacer(object):
         self.visited = set()
         self.domain = "https://en.wikipedia.org"
         self.urls_to_crawl_queue = Queue.Queue()
+        self.urls_to_crawl_queue.put(start_url)
 
     def run_race(self):
         # going to store url relationships like url: parent_url
         while True:
-            current_url = urls_to_crawl_queue.get()
+            current_url = self.urls_to_crawl_queue.get()
             chunk = urllib.urlopen(current_url).read()
             utils.visit(self, current_url, chunk)
 
@@ -24,7 +25,6 @@ if __name__ == '__main__':
         urls = utils.get_url_args()
         start_url = urls['start']
         end_url = urls['end']
-        urls_to_crawl_queue.put(start_url)        
         racer = WikiRacer(start_url, end_url)
         racer.run_race()
     except ValueError as e:

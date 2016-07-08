@@ -1,24 +1,27 @@
-python wiki_racer_multi.py \
+time python wiki_racer.py \
 --raw \
 '{
     "start": "https://en.wikipedia.org/wiki/Binomial_distribution",
     "end": "https://en.wikipedia.org/wiki/Machine_learning"
 }'
 
-'{
-    "start": "https://en.wikipedia.org/wiki/Binomial_distribution",
-    "end": "https://en.wikipedia.org/wiki/Continuous_probability_distribution"
-}'
-
+time python wiki_racer_multi.py \
+--raw \
 '{
     "start": "https://en.wikipedia.org/wiki/French_fries",
     "end": "https://en.wikipedia.org/wiki/Beer"
 }'
 
+time python wiki_racer_multi.py \
+--raw \
 '{
-    "start": "https://en.wikipedia.org/wiki/Seattle",
-    "end": "https://en.wikipedia.org/wiki/Barcelona"
+    "start": "https://en.wikipedia.org/wiki/Binomial_distribution",
+    "end": "https://en.wikipedia.org/wiki/Beer"
 }'
 
-
-
+time python wiki_racer.py \
+--raw \
+'{
+    "start": "https://en.wikipedia.org/wiki/The_Championships,_Wimbledon",
+    "end": "https://en.wikipedia.org/wiki/Hunger_games"
+}'
