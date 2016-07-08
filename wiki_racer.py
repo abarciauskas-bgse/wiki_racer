@@ -21,14 +21,9 @@ class WikiRacer(object):
 if __name__ == '__main__':
     # FIXME: Throw an informative error if cannot parse json start and end url
     try:
-        parser = argparse.ArgumentParser(description='Description of your program')
-        parser.add_argument('-r','--raw', help='Description for foo argument', required=True)
-        args = vars(parser.parse_args())
-        raw = args['raw']
-        urls = json.loads(raw)
+        urls = utils.get_url_args()
         start_url = urls['start']
         end_url = urls['end']
-
         urls_to_crawl_queue.put(start_url)        
         racer = WikiRacer(start_url, end_url)
         racer.run_race()

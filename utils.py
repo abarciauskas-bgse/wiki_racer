@@ -3,6 +3,14 @@ import json
 import os
 import urllib
 import urlparse
+import argparse
+
+def get_url_args():
+    parser = argparse.ArgumentParser(description='Description of your program')
+    parser.add_argument('-r','--raw', help='Description for foo argument', required=True)
+    args = vars(parser.parse_args())
+    raw = args['raw']
+    return json.loads(raw)
 
 def is_absolute(url):
      return bool(urlparse.urlparse(url).netloc)
@@ -34,7 +42,10 @@ def visit(object, url, chunk):
                 new_url = "".join([object.domain, href])
                 object.child_parent_urls[new_url] = url
                 if new_url == object.end_url:
-                    print json.dumps({'start': object.start_url, 'end': object.end_url, 'path': path(object, object.end_url)})
+                    print json.dumps({
+                        'start': object.start_url,
+                        'end': object.end_url,
+                        'path': path(object, object.end_url)}, indent=4)
                     os._exit(1)
                 if new_url not in object.visited:
                     object.urls_to_crawl_queue.put(new_url)
