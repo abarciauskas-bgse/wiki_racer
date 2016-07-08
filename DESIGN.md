@@ -16,7 +16,7 @@ For each url on the queue, the process is as follows:
 
 I timed results using the unix [`time`](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/time.1.html) command on the same pair of urls to evaluate performance gains from using multiple threads. Times reported are total time elapsed as reported by `time`. E.g. `118.29s user 31.51s system 117% cpu 2:07.70 total`, 2:07.70 is reported.
 
-| start_url ('https://en.wikipedia.org/wiki/')                                          | end_url                                        | time single threaded | path single threaded | time multi threaded | path multi threaded |
+| start_url (https://en.wikipedia.org/wiki/)                                          | end_url                                        | time single threaded | path single threaded | time multi threaded | path multi threaded |
 |-----------------------------------------------------|------------------------------------------------|----------------------|----------------------|---------------------|---------------------|
 | /Binomial_distribution | /Machine_learning | 6.034                | 5                    | 3.820               | 5                   |
 | /French_fries          | /Beer             | 8.985                | 2                    | 4.922               | 2                   |
