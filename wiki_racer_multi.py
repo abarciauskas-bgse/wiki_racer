@@ -11,12 +11,10 @@ class ThreadUrl(threading.Thread):
         while True:
             #grabs host from urls_to_crawl_queue
             url = self.urls_to_crawl_queue.get()
-
             #grabs urls of hosts and then grabs chunk of webpage
             try:
                 page = urllib.urlopen(url)
                 chunk = page.read()
-
                 #place chunk into out urls_to_crawl_queue
                 self.crawled_pages_queue.put([url, chunk])
             except IOError as e:
@@ -31,6 +29,8 @@ class DatamineThread(threading.Thread):
         self.visited = set()
         self.child_parent_urls = {}
         self.domain = "https://en.wikipedia.org"
+        self.end_url = end_url
+        self.start_url = start_url
 
     def run(self):
         while True:

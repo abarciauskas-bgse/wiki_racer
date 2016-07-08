@@ -1,4 +1,4 @@
-python wiki_racer.py \
+python wiki_racer_multi.py \
 --raw \
 '{
     "start": "https://en.wikipedia.org/wiki/Binomial_distribution",
