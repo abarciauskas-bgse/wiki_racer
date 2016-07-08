@@ -1,3 +1,5 @@
+python wiki_racer.py \
+--raw \
 '{
     "start": "https://en.wikipedia.org/wiki/Binomial_distribution",
     "end": "https://en.wikipedia.org/wiki/Machine_learning"
@@ -18,11 +20,5 @@
     "end": "https://en.wikipedia.org/wiki/Barcelona"
 }'
 
-python wiki_racer_multi.py \
---raw \
-'{
-    "start": "https://en.wikipedia.org/wiki/2007",
-    "end": "https://en.wikipedia.org/wiki/Daft_Punk"
-}'
 
 
