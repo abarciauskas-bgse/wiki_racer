@@ -2,7 +2,7 @@
 
 Install any missing libraries listed in `imports.py` and `utils.py`
 
-WikiRacer takes a starting and ending article in the form of a json string and returns a json string which includes a list of links visited.
+WikiRacer takes a starting and ending article in the form of a json string and returns a json string which includes a list of links visited. One can use either the single- (`wiki_racer.py`) or multi-threaded versions (`wiki_racer_multi.py`).
 
 Example:
 
@@ -42,4 +42,6 @@ py.test test_wiki_racer.py
 ```
 
 
+# Design
 
+For details on the approaches
